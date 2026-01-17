@@ -1,0 +1,563 @@
+Probando funcion levenshtein
+----------------------------------------------------------------------
+
+Comprobando si levenshtein(ejemplo,campos) == 5
+operaciones: [('e', ''), ('j', 'c'), ('e', 'a'), ('m', 'm'), ('p', 'p'), ('l', 'o'), ('o', 's')]
+ - e       se aplica en |ejemplo para dar |jemplo coste 1
+ - j   c   se aplica en |jemplo para dar c|emplo coste 1
+ - e   a   se aplica en c|emplo para dar ca|mplo coste 1
+ - m   m   se aplica en ca|mplo para dar cam|plo coste 0
+ - p   p   se aplica en cam|plo para dar camp|lo coste 0
+ - l   o   se aplica en camp|lo para dar campo|o coste 1
+ - o   s   se aplica en campo|o para dar campos| coste 1
+CORRECTO!
+
+Comprobando si levenshtein(algortimac,algoritmica) == 4
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('t', 'i'), ('i', 't'), ('m', 'm'), ('a', 'i'), ('c', 'c'), ('', 'a')]
+ - a   a   se aplica en |algortimac para dar a|lgortimac coste 0
+ - l   l   se aplica en a|lgortimac para dar al|gortimac coste 0
+ - g   g   se aplica en al|gortimac para dar alg|ortimac coste 0
+ - o   o   se aplica en alg|ortimac para dar algo|rtimac coste 0
+ - r   r   se aplica en algo|rtimac para dar algor|timac coste 0
+ - t   i   se aplica en algor|timac para dar algori|imac coste 1
+ - i   t   se aplica en algori|imac para dar algorit|mac coste 1
+ - m   m   se aplica en algorit|mac para dar algoritm|ac coste 0
+ - a   i   se aplica en algoritm|ac para dar algoritmi|c coste 1
+ - c   c   se aplica en algoritmi|c para dar algoritmic| coste 0
+ -     a   se aplica en algoritmic| para dar algoritmica| coste 1
+CORRECTO!
+
+Comprobando si levenshtein(zapato,patos) == 3
+operaciones: [('z', ''), ('a', ''), ('p', 'p'), ('a', 'a'), ('t', 't'), ('o', 'o'), ('', 's')]
+ - z       se aplica en |zapato para dar |apato coste 1
+ - a       se aplica en |apato para dar |pato coste 1
+ - p   p   se aplica en |pato para dar p|ato coste 0
+ - a   a   se aplica en p|ato para dar pa|to coste 0
+ - t   t   se aplica en pa|to para dar pat|o coste 0
+ - o   o   se aplica en pat|o para dar pato| coste 0
+ -     s   se aplica en pato| para dar patos| coste 1
+CORRECTO!
+
+Comprobando si levenshtein(camarero,camionero) == 3
+operaciones: [('c', 'c'), ('a', 'a'), ('m', 'm'), ('', 'i'), ('a', 'o'), ('r', 'n'), ('e', 'e'), ('r', 'r'), ('o', 'o')]
+ - c   c   se aplica en |camarero para dar c|amarero coste 0
+ - a   a   se aplica en c|amarero para dar ca|marero coste 0
+ - m   m   se aplica en ca|marero para dar cam|arero coste 0
+ -     i   se aplica en cam|arero para dar cami|arero coste 1
+ - a   o   se aplica en cami|arero para dar camio|rero coste 1
+ - r   n   se aplica en camio|rero para dar camion|ero coste 1
+ - e   e   se aplica en camion|ero para dar camione|ro coste 0
+ - r   r   se aplica en camione|ro para dar camioner|o coste 0
+ - o   o   se aplica en camioner|o para dar camionero| coste 0
+CORRECTO!
+
+Comprobando si levenshtein(tomate,atom) == 4
+operaciones: [('', 'a'), ('t', 't'), ('o', 'o'), ('m', 'm'), ('a', ''), ('t', ''), ('e', '')]
+ -     a   se aplica en |tomate para dar a|tomate coste 1
+ - t   t   se aplica en a|tomate para dar at|omate coste 0
+ - o   o   se aplica en at|omate para dar ato|mate coste 0
+ - m   m   se aplica en ato|mate para dar atom|ate coste 0
+ - a       se aplica en atom|ate para dar atom|te coste 1
+ - t       se aplica en atom|te para dar atom|e coste 1
+ - e       se aplica en atom|e para dar atom| coste 1
+CORRECTO!
+
+Comprobando si levenshtein(queso,sobrasada) == 8
+operaciones: [('', 's'), ('', 'o'), ('q', 'b'), ('u', 'r'), ('e', 'a'), ('s', 's'), ('', 'a'), ('', 'd'), ('o', 'a')]
+ -     s   se aplica en |queso para dar s|queso coste 1
+ -     o   se aplica en s|queso para dar so|queso coste 1
+ - q   b   se aplica en so|queso para dar sob|ueso coste 1
+ - u   r   se aplica en sob|ueso para dar sobr|eso coste 1
+ - e   a   se aplica en sobr|eso para dar sobra|so coste 1
+ - s   s   se aplica en sobra|so para dar sobras|o coste 0
+ -     a   se aplica en sobras|o para dar sobrasa|o coste 1
+ -     d   se aplica en sobrasa|o para dar sobrasad|o coste 1
+ - o   a   se aplica en sobrasad|o para dar sobrasada| coste 1
+CORRECTO!
+
+Comprobando si levenshtein(espada,sedacion) == 7
+operaciones: [('', 's'), ('e', 'e'), ('', 'd'), ('s', 'a'), ('p', 'c'), ('a', 'i'), ('d', 'o'), ('a', 'n')]
+ -     s   se aplica en |espada para dar s|espada coste 1
+ - e   e   se aplica en s|espada para dar se|spada coste 0
+ -     d   se aplica en se|spada para dar sed|spada coste 1
+ - s   a   se aplica en sed|spada para dar seda|pada coste 1
+ - p   c   se aplica en seda|pada para dar sedac|ada coste 1
+ - a   i   se aplica en sedac|ada para dar sedaci|da coste 1
+ - d   o   se aplica en sedaci|da para dar sedacio|a coste 1
+ - a   n   se aplica en sedacio|a para dar sedacion| coste 1
+CORRECTO!
+
+Comprobando si levenshtein(imperterrito,ops) == 11
+operaciones: [('i', ''), ('m', 'o'), ('p', 'p'), ('e', ''), ('r', ''), ('t', ''), ('e', ''), ('r', ''), ('r', ''), ('i', ''), ('t', ''), ('o', 's')]
+ - i       se aplica en |imperterrito para dar |mperterrito coste 1
+ - m   o   se aplica en |mperterrito para dar o|perterrito coste 1
+ - p   p   se aplica en o|perterrito para dar op|erterrito coste 0
+ - e       se aplica en op|erterrito para dar op|rterrito coste 1
+ - r       se aplica en op|rterrito para dar op|territo coste 1
+ - t       se aplica en op|territo para dar op|errito coste 1
+ - e       se aplica en op|errito para dar op|rrito coste 1
+ - r       se aplica en op|rrito para dar op|rito coste 1
+ - r       se aplica en op|rito para dar op|ito coste 1
+ - i       se aplica en op|ito para dar op|to coste 1
+ - t       se aplica en op|to para dar op|o coste 1
+ - o   s   se aplica en op|o para dar ops| coste 1
+CORRECTO!
+
+Comprobando si levenshtein(ops,imperterrito) == 11
+operaciones: [('', 'i'), ('o', 'm'), ('p', 'p'), ('', 'e'), ('', 'r'), ('', 't'), ('', 'e'), ('', 'r'), ('', 'r'), ('', 'i'), ('', 't'), ('s', 'o')]
+ -     i   se aplica en |ops para dar i|ops coste 1
+ - o   m   se aplica en i|ops para dar im|ps coste 1
+ - p   p   se aplica en im|ps para dar imp|s coste 0
+ -     e   se aplica en imp|s para dar impe|s coste 1
+ -     r   se aplica en impe|s para dar imper|s coste 1
+ -     t   se aplica en imper|s para dar impert|s coste 1
+ -     e   se aplica en impert|s para dar imperte|s coste 1
+ -     r   se aplica en imperte|s para dar imperter|s coste 1
+ -     r   se aplica en imperter|s para dar imperterr|s coste 1
+ -     i   se aplica en imperterr|s para dar imperterri|s coste 1
+ -     t   se aplica en imperterri|s para dar imperterrit|s coste 1
+ - s   o   se aplica en imperterrit|s para dar imperterrito| coste 1
+CORRECTO!
+
+Comprobando si levenshtein(algoritmo,algortimo) == 2
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('i', 't'), ('t', 'i'), ('m', 'm'), ('o', 'o')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - l   l   se aplica en a|lgoritmo para dar al|goritmo coste 0
+ - g   g   se aplica en al|goritmo para dar alg|oritmo coste 0
+ - o   o   se aplica en alg|oritmo para dar algo|ritmo coste 0
+ - r   r   se aplica en algo|ritmo para dar algor|itmo coste 0
+ - i   t   se aplica en algor|itmo para dar algort|tmo coste 1
+ - t   i   se aplica en algort|tmo para dar algorti|mo coste 1
+ - m   m   se aplica en algorti|mo para dar algortim|o coste 0
+ - o   o   se aplica en algortim|o para dar algortimo| coste 0
+CORRECTO!
+
+Comprobando si levenshtein(algoritmo,algortximo) == 3
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('', 't'), ('i', 'x'), ('t', 'i'), ('m', 'm'), ('o', 'o')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - l   l   se aplica en a|lgoritmo para dar al|goritmo coste 0
+ - g   g   se aplica en al|goritmo para dar alg|oritmo coste 0
+ - o   o   se aplica en alg|oritmo para dar algo|ritmo coste 0
+ - r   r   se aplica en algo|ritmo para dar algor|itmo coste 0
+ -     t   se aplica en algor|itmo para dar algort|itmo coste 1
+ - i   x   se aplica en algort|itmo para dar algortx|tmo coste 1
+ - t   i   se aplica en algortx|tmo para dar algortxi|mo coste 1
+ - m   m   se aplica en algortxi|mo para dar algortxim|o coste 0
+ - o   o   se aplica en algortxim|o para dar algortximo| coste 0
+CORRECTO!
+
+Comprobando si levenshtein(algoritmo,lagortimo) == 4
+operaciones: [('a', 'l'), ('l', 'a'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('i', 't'), ('t', 'i'), ('m', 'm'), ('o', 'o')]
+ - a   l   se aplica en |algoritmo para dar l|lgoritmo coste 1
+ - l   a   se aplica en l|lgoritmo para dar la|goritmo coste 1
+ - g   g   se aplica en la|goritmo para dar lag|oritmo coste 0
+ - o   o   se aplica en lag|oritmo para dar lago|ritmo coste 0
+ - r   r   se aplica en lago|ritmo para dar lagor|itmo coste 0
+ - i   t   se aplica en lagor|itmo para dar lagort|tmo coste 1
+ - t   i   se aplica en lagort|tmo para dar lagorti|mo coste 1
+ - m   m   se aplica en lagorti|mo para dar lagortim|o coste 0
+ - o   o   se aplica en lagortim|o para dar lagortimo| coste 0
+CORRECTO!
+
+Comprobando si levenshtein(algoritmo,agaloritom) == 5
+operaciones: [('a', 'a'), ('', 'g'), ('l', 'a'), ('g', 'l'), ('o', 'o'), ('r', 'r'), ('i', 'i'), ('t', 't'), ('m', 'o'), ('o', 'm')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ -     g   se aplica en a|lgoritmo para dar ag|lgoritmo coste 1
+ - l   a   se aplica en ag|lgoritmo para dar aga|goritmo coste 1
+ - g   l   se aplica en aga|goritmo para dar agal|oritmo coste 1
+ - o   o   se aplica en agal|oritmo para dar agalo|ritmo coste 0
+ - r   r   se aplica en agalo|ritmo para dar agalor|itmo coste 0
+ - i   i   se aplica en agalor|itmo para dar agalori|tmo coste 0
+ - t   t   se aplica en agalori|tmo para dar agalorit|mo coste 0
+ - m   o   se aplica en agalorit|mo para dar agalorito|o coste 1
+ - o   m   se aplica en agalorito|o para dar agaloritom| coste 1
+CORRECTO!
+
+Comprobando si levenshtein(algoritmo,algormio) == 3
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('i', ''), ('t', 'm'), ('m', 'i'), ('o', 'o')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - l   l   se aplica en a|lgoritmo para dar al|goritmo coste 0
+ - g   g   se aplica en al|goritmo para dar alg|oritmo coste 0
+ - o   o   se aplica en alg|oritmo para dar algo|ritmo coste 0
+ - r   r   se aplica en algo|ritmo para dar algor|itmo coste 0
+ - i       se aplica en algor|itmo para dar algor|tmo coste 1
+ - t   m   se aplica en algor|tmo para dar algorm|mo coste 1
+ - m   i   se aplica en algorm|mo para dar algormi|o coste 1
+ - o   o   se aplica en algormi|o para dar algormio| coste 0
+CORRECTO!
+
+Comprobando si levenshtein(acb,ba) == 3
+operaciones: [('a', ''), ('c', 'b'), ('b', 'a')]
+ - a       se aplica en |acb para dar |cb coste 1
+ - c   b   se aplica en |cb para dar b|b coste 1
+ - b   a   se aplica en b|b para dar ba| coste 1
+CORRECTO!
+
+Probando funcion damerau_r
+----------------------------------------------------------------------
+
+Comprobando si damerau_r(ejemplo,campos) == 5
+operaciones: [('e', ''), ('j', 'c'), ('e', 'a'), ('m', 'm'), ('p', 'p'), ('l', 'o'), ('o', 's')]
+ - e       se aplica en |ejemplo para dar |jemplo coste 1
+ - j   c   se aplica en |jemplo para dar c|emplo coste 1
+ - e   a   se aplica en c|emplo para dar ca|mplo coste 1
+ - m   m   se aplica en ca|mplo para dar cam|plo coste 0
+ - p   p   se aplica en cam|plo para dar camp|lo coste 0
+ - l   o   se aplica en camp|lo para dar campo|o coste 1
+ - o   s   se aplica en campo|o para dar campos| coste 1
+CORRECTO!
+
+Comprobando si damerau_r(algortimac,algoritmica) == 3
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('', 'i'), ('t', 't'), ('im', 'mi'), ('ac', 'ca')]
+ - a   a   se aplica en |algortimac para dar a|lgortimac coste 0
+ - l   l   se aplica en a|lgortimac para dar al|gortimac coste 0
+ - g   g   se aplica en al|gortimac para dar alg|ortimac coste 0
+ - o   o   se aplica en alg|ortimac para dar algo|rtimac coste 0
+ - r   r   se aplica en algo|rtimac para dar algor|timac coste 0
+ -     i   se aplica en algor|timac para dar algori|timac coste 1
+ - t   t   se aplica en algori|timac para dar algorit|imac coste 0
+ - im  mi  se aplica en algorit|imac para dar algoritmi|ac coste 1
+ - ac  ca  se aplica en algoritmi|ac para dar algoritmica| coste 1
+CORRECTO!
+
+Comprobando si damerau_r(zapato,patos) == 3
+operaciones: [('z', ''), ('a', ''), ('p', 'p'), ('a', 'a'), ('t', 't'), ('o', 'o'), ('', 's')]
+ - z       se aplica en |zapato para dar |apato coste 1
+ - a       se aplica en |apato para dar |pato coste 1
+ - p   p   se aplica en |pato para dar p|ato coste 0
+ - a   a   se aplica en p|ato para dar pa|to coste 0
+ - t   t   se aplica en pa|to para dar pat|o coste 0
+ - o   o   se aplica en pat|o para dar pato| coste 0
+ -     s   se aplica en pato| para dar patos| coste 1
+CORRECTO!
+
+Comprobando si damerau_r(camarero,camionero) == 3
+operaciones: [('c', 'c'), ('a', 'a'), ('m', 'm'), ('', 'i'), ('a', 'o'), ('r', 'n'), ('e', 'e'), ('r', 'r'), ('o', 'o')]
+ - c   c   se aplica en |camarero para dar c|amarero coste 0
+ - a   a   se aplica en c|amarero para dar ca|marero coste 0
+ - m   m   se aplica en ca|marero para dar cam|arero coste 0
+ -     i   se aplica en cam|arero para dar cami|arero coste 1
+ - a   o   se aplica en cami|arero para dar camio|rero coste 1
+ - r   n   se aplica en camio|rero para dar camion|ero coste 1
+ - e   e   se aplica en camion|ero para dar camione|ro coste 0
+ - r   r   se aplica en camione|ro para dar camioner|o coste 0
+ - o   o   se aplica en camioner|o para dar camionero| coste 0
+CORRECTO!
+
+Comprobando si damerau_r(tomate,atom) == 4
+operaciones: [('', 'a'), ('t', 't'), ('o', 'o'), ('m', 'm'), ('a', ''), ('t', ''), ('e', '')]
+ -     a   se aplica en |tomate para dar a|tomate coste 1
+ - t   t   se aplica en a|tomate para dar at|omate coste 0
+ - o   o   se aplica en at|omate para dar ato|mate coste 0
+ - m   m   se aplica en ato|mate para dar atom|ate coste 0
+ - a       se aplica en atom|ate para dar atom|te coste 1
+ - t       se aplica en atom|te para dar atom|e coste 1
+ - e       se aplica en atom|e para dar atom| coste 1
+CORRECTO!
+
+Comprobando si damerau_r(queso,sobrasada) == 8
+operaciones: [('', 's'), ('', 'o'), ('q', 'b'), ('u', 'r'), ('e', 'a'), ('s', 's'), ('', 'a'), ('', 'd'), ('o', 'a')]
+ -     s   se aplica en |queso para dar s|queso coste 1
+ -     o   se aplica en s|queso para dar so|queso coste 1
+ - q   b   se aplica en so|queso para dar sob|ueso coste 1
+ - u   r   se aplica en sob|ueso para dar sobr|eso coste 1
+ - e   a   se aplica en sobr|eso para dar sobra|so coste 1
+ - s   s   se aplica en sobra|so para dar sobras|o coste 0
+ -     a   se aplica en sobras|o para dar sobrasa|o coste 1
+ -     d   se aplica en sobrasa|o para dar sobrasad|o coste 1
+ - o   a   se aplica en sobrasad|o para dar sobrasada| coste 1
+CORRECTO!
+
+Comprobando si damerau_r(espada,sedacion) == 6
+operaciones: [('es', 'se'), ('p', 'd'), ('a', 'a'), ('', 'c'), ('', 'i'), ('d', 'o'), ('a', 'n')]
+ - es  se  se aplica en |espada para dar se|pada coste 1
+ - p   d   se aplica en se|pada para dar sed|ada coste 1
+ - a   a   se aplica en sed|ada para dar seda|da coste 0
+ -     c   se aplica en seda|da para dar sedac|da coste 1
+ -     i   se aplica en sedac|da para dar sedaci|da coste 1
+ - d   o   se aplica en sedaci|da para dar sedacio|a coste 1
+ - a   n   se aplica en sedacio|a para dar sedacion| coste 1
+CORRECTO!
+
+Comprobando si damerau_r(imperterrito,ops) == 11
+operaciones: [('i', ''), ('m', 'o'), ('p', 'p'), ('e', ''), ('r', ''), ('t', ''), ('e', ''), ('r', ''), ('r', ''), ('i', ''), ('t', ''), ('o', 's')]
+ - i       se aplica en |imperterrito para dar |mperterrito coste 1
+ - m   o   se aplica en |mperterrito para dar o|perterrito coste 1
+ - p   p   se aplica en o|perterrito para dar op|erterrito coste 0
+ - e       se aplica en op|erterrito para dar op|rterrito coste 1
+ - r       se aplica en op|rterrito para dar op|territo coste 1
+ - t       se aplica en op|territo para dar op|errito coste 1
+ - e       se aplica en op|errito para dar op|rrito coste 1
+ - r       se aplica en op|rrito para dar op|rito coste 1
+ - r       se aplica en op|rito para dar op|ito coste 1
+ - i       se aplica en op|ito para dar op|to coste 1
+ - t       se aplica en op|to para dar op|o coste 1
+ - o   s   se aplica en op|o para dar ops| coste 1
+CORRECTO!
+
+Comprobando si damerau_r(ops,imperterrito) == 11
+operaciones: [('', 'i'), ('o', 'm'), ('p', 'p'), ('', 'e'), ('', 'r'), ('', 't'), ('', 'e'), ('', 'r'), ('', 'r'), ('', 'i'), ('', 't'), ('s', 'o')]
+ -     i   se aplica en |ops para dar i|ops coste 1
+ - o   m   se aplica en i|ops para dar im|ps coste 1
+ - p   p   se aplica en im|ps para dar imp|s coste 0
+ -     e   se aplica en imp|s para dar impe|s coste 1
+ -     r   se aplica en impe|s para dar imper|s coste 1
+ -     t   se aplica en imper|s para dar impert|s coste 1
+ -     e   se aplica en impert|s para dar imperte|s coste 1
+ -     r   se aplica en imperte|s para dar imperter|s coste 1
+ -     r   se aplica en imperter|s para dar imperterr|s coste 1
+ -     i   se aplica en imperterr|s para dar imperterri|s coste 1
+ -     t   se aplica en imperterri|s para dar imperterrit|s coste 1
+ - s   o   se aplica en imperterrit|s para dar imperterrito| coste 1
+CORRECTO!
+
+Comprobando si damerau_r(algoritmo,algortimo) == 1
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('it', 'ti'), ('m', 'm'), ('o', 'o')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - l   l   se aplica en a|lgoritmo para dar al|goritmo coste 0
+ - g   g   se aplica en al|goritmo para dar alg|oritmo coste 0
+ - o   o   se aplica en alg|oritmo para dar algo|ritmo coste 0
+ - r   r   se aplica en algo|ritmo para dar algor|itmo coste 0
+ - it  ti  se aplica en algor|itmo para dar algorti|mo coste 1
+ - m   m   se aplica en algorti|mo para dar algortim|o coste 0
+ - o   o   se aplica en algortim|o para dar algortimo| coste 0
+CORRECTO!
+
+Comprobando si damerau_r(algoritmo,algortximo) == 3
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('', 't'), ('i', 'x'), ('t', 'i'), ('m', 'm'), ('o', 'o')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - l   l   se aplica en a|lgoritmo para dar al|goritmo coste 0
+ - g   g   se aplica en al|goritmo para dar alg|oritmo coste 0
+ - o   o   se aplica en alg|oritmo para dar algo|ritmo coste 0
+ - r   r   se aplica en algo|ritmo para dar algor|itmo coste 0
+ -     t   se aplica en algor|itmo para dar algort|itmo coste 1
+ - i   x   se aplica en algort|itmo para dar algortx|tmo coste 1
+ - t   i   se aplica en algortx|tmo para dar algortxi|mo coste 1
+ - m   m   se aplica en algortxi|mo para dar algortxim|o coste 0
+ - o   o   se aplica en algortxim|o para dar algortximo| coste 0
+CORRECTO!
+
+Comprobando si damerau_r(algoritmo,lagortimo) == 2
+operaciones: [('al', 'la'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('it', 'ti'), ('m', 'm'), ('o', 'o')]
+ - al  la  se aplica en |algoritmo para dar la|goritmo coste 1
+ - g   g   se aplica en la|goritmo para dar lag|oritmo coste 0
+ - o   o   se aplica en lag|oritmo para dar lago|ritmo coste 0
+ - r   r   se aplica en lago|ritmo para dar lagor|itmo coste 0
+ - it  ti  se aplica en lagor|itmo para dar lagorti|mo coste 1
+ - m   m   se aplica en lagorti|mo para dar lagortim|o coste 0
+ - o   o   se aplica en lagortim|o para dar lagortimo| coste 0
+CORRECTO!
+
+Comprobando si damerau_r(algoritmo,agaloritom) == 4
+operaciones: [('a', 'a'), ('', 'g'), ('l', 'a'), ('g', 'l'), ('o', 'o'), ('r', 'r'), ('i', 'i'), ('t', 't'), ('mo', 'om')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ -     g   se aplica en a|lgoritmo para dar ag|lgoritmo coste 1
+ - l   a   se aplica en ag|lgoritmo para dar aga|goritmo coste 1
+ - g   l   se aplica en aga|goritmo para dar agal|oritmo coste 1
+ - o   o   se aplica en agal|oritmo para dar agalo|ritmo coste 0
+ - r   r   se aplica en agalo|ritmo para dar agalor|itmo coste 0
+ - i   i   se aplica en agalor|itmo para dar agalori|tmo coste 0
+ - t   t   se aplica en agalori|tmo para dar agalorit|mo coste 0
+ - mo  om  se aplica en agalorit|mo para dar agaloritom| coste 1
+CORRECTO!
+
+Comprobando si damerau_r(algoritmo,algormio) == 3
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('i', ''), ('t', 'm'), ('m', 'i'), ('o', 'o')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - l   l   se aplica en a|lgoritmo para dar al|goritmo coste 0
+ - g   g   se aplica en al|goritmo para dar alg|oritmo coste 0
+ - o   o   se aplica en alg|oritmo para dar algo|ritmo coste 0
+ - r   r   se aplica en algo|ritmo para dar algor|itmo coste 0
+ - i       se aplica en algor|itmo para dar algor|tmo coste 1
+ - t   m   se aplica en algor|tmo para dar algorm|mo coste 1
+ - m   i   se aplica en algorm|mo para dar algormi|o coste 1
+ - o   o   se aplica en algormi|o para dar algormio| coste 0
+CORRECTO!
+
+Comprobando si damerau_r(acb,ba) == 3
+operaciones: [('a', ''), ('c', 'b'), ('b', 'a')]
+ - a       se aplica en |acb para dar |cb coste 1
+ - c   b   se aplica en |cb para dar b|b coste 1
+ - b   a   se aplica en b|b para dar ba| coste 1
+CORRECTO!
+
+Probando funcion damerau_i
+----------------------------------------------------------------------
+
+Comprobando si damerau_i(ejemplo,campos) == 5
+operaciones: [('e', ''), ('j', 'c'), ('e', 'a'), ('m', 'm'), ('p', 'p'), ('l', 'o'), ('o', 's')]
+ - e       se aplica en |ejemplo para dar |jemplo coste 1
+ - j   c   se aplica en |jemplo para dar c|emplo coste 1
+ - e   a   se aplica en c|emplo para dar ca|mplo coste 1
+ - m   m   se aplica en ca|mplo para dar cam|plo coste 0
+ - p   p   se aplica en cam|plo para dar camp|lo coste 0
+ - l   o   se aplica en camp|lo para dar campo|o coste 1
+ - o   s   se aplica en campo|o para dar campos| coste 1
+CORRECTO!
+
+Comprobando si damerau_i(algortimac,algoritmica) == 3
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('', 'i'), ('t', 't'), ('im', 'mi'), ('ac', 'ca')]
+ - a   a   se aplica en |algortimac para dar a|lgortimac coste 0
+ - l   l   se aplica en a|lgortimac para dar al|gortimac coste 0
+ - g   g   se aplica en al|gortimac para dar alg|ortimac coste 0
+ - o   o   se aplica en alg|ortimac para dar algo|rtimac coste 0
+ - r   r   se aplica en algo|rtimac para dar algor|timac coste 0
+ -     i   se aplica en algor|timac para dar algori|timac coste 1
+ - t   t   se aplica en algori|timac para dar algorit|imac coste 0
+ - im  mi  se aplica en algorit|imac para dar algoritmi|ac coste 1
+ - ac  ca  se aplica en algoritmi|ac para dar algoritmica| coste 1
+CORRECTO!
+
+Comprobando si damerau_i(zapato,patos) == 3
+operaciones: [('z', ''), ('a', ''), ('p', 'p'), ('a', 'a'), ('t', 't'), ('o', 'o'), ('', 's')]
+ - z       se aplica en |zapato para dar |apato coste 1
+ - a       se aplica en |apato para dar |pato coste 1
+ - p   p   se aplica en |pato para dar p|ato coste 0
+ - a   a   se aplica en p|ato para dar pa|to coste 0
+ - t   t   se aplica en pa|to para dar pat|o coste 0
+ - o   o   se aplica en pat|o para dar pato| coste 0
+ -     s   se aplica en pato| para dar patos| coste 1
+CORRECTO!
+
+Comprobando si damerau_i(camarero,camionero) == 3
+operaciones: [('c', 'c'), ('a', 'a'), ('m', 'm'), ('', 'i'), ('a', 'o'), ('r', 'n'), ('e', 'e'), ('r', 'r'), ('o', 'o')]
+ - c   c   se aplica en |camarero para dar c|amarero coste 0
+ - a   a   se aplica en c|amarero para dar ca|marero coste 0
+ - m   m   se aplica en ca|marero para dar cam|arero coste 0
+ -     i   se aplica en cam|arero para dar cami|arero coste 1
+ - a   o   se aplica en cami|arero para dar camio|rero coste 1
+ - r   n   se aplica en camio|rero para dar camion|ero coste 1
+ - e   e   se aplica en camion|ero para dar camione|ro coste 0
+ - r   r   se aplica en camione|ro para dar camioner|o coste 0
+ - o   o   se aplica en camioner|o para dar camionero| coste 0
+CORRECTO!
+
+Comprobando si damerau_i(tomate,atom) == 4
+operaciones: [('', 'a'), ('t', 't'), ('o', 'o'), ('m', 'm'), ('a', ''), ('t', ''), ('e', '')]
+ -     a   se aplica en |tomate para dar a|tomate coste 1
+ - t   t   se aplica en a|tomate para dar at|omate coste 0
+ - o   o   se aplica en at|omate para dar ato|mate coste 0
+ - m   m   se aplica en ato|mate para dar atom|ate coste 0
+ - a       se aplica en atom|ate para dar atom|te coste 1
+ - t       se aplica en atom|te para dar atom|e coste 1
+ - e       se aplica en atom|e para dar atom| coste 1
+CORRECTO!
+
+Comprobando si damerau_i(queso,sobrasada) == 8
+operaciones: [('', 's'), ('', 'o'), ('q', 'b'), ('u', 'r'), ('e', 'a'), ('s', 's'), ('', 'a'), ('', 'd'), ('o', 'a')]
+ -     s   se aplica en |queso para dar s|queso coste 1
+ -     o   se aplica en s|queso para dar so|queso coste 1
+ - q   b   se aplica en so|queso para dar sob|ueso coste 1
+ - u   r   se aplica en sob|ueso para dar sobr|eso coste 1
+ - e   a   se aplica en sobr|eso para dar sobra|so coste 1
+ - s   s   se aplica en sobra|so para dar sobras|o coste 0
+ -     a   se aplica en sobras|o para dar sobrasa|o coste 1
+ -     d   se aplica en sobrasa|o para dar sobrasad|o coste 1
+ - o   a   se aplica en sobrasad|o para dar sobrasada| coste 1
+CORRECTO!
+
+Comprobando si damerau_i(espada,sedacion) == 6
+operaciones: [('es', 'se'), ('p', 'd'), ('a', 'a'), ('', 'c'), ('', 'i'), ('d', 'o'), ('a', 'n')]
+ - es  se  se aplica en |espada para dar se|pada coste 1
+ - p   d   se aplica en se|pada para dar sed|ada coste 1
+ - a   a   se aplica en sed|ada para dar seda|da coste 0
+ -     c   se aplica en seda|da para dar sedac|da coste 1
+ -     i   se aplica en sedac|da para dar sedaci|da coste 1
+ - d   o   se aplica en sedaci|da para dar sedacio|a coste 1
+ - a   n   se aplica en sedacio|a para dar sedacion| coste 1
+CORRECTO!
+
+Comprobando si damerau_i(imperterrito,ops) == 11
+operaciones: [('i', ''), ('m', 'o'), ('p', 'p'), ('e', ''), ('r', ''), ('t', ''), ('e', ''), ('r', ''), ('r', ''), ('i', ''), ('t', ''), ('o', 's')]
+ - i       se aplica en |imperterrito para dar |mperterrito coste 1
+ - m   o   se aplica en |mperterrito para dar o|perterrito coste 1
+ - p   p   se aplica en o|perterrito para dar op|erterrito coste 0
+ - e       se aplica en op|erterrito para dar op|rterrito coste 1
+ - r       se aplica en op|rterrito para dar op|territo coste 1
+ - t       se aplica en op|territo para dar op|errito coste 1
+ - e       se aplica en op|errito para dar op|rrito coste 1
+ - r       se aplica en op|rrito para dar op|rito coste 1
+ - r       se aplica en op|rito para dar op|ito coste 1
+ - i       se aplica en op|ito para dar op|to coste 1
+ - t       se aplica en op|to para dar op|o coste 1
+ - o   s   se aplica en op|o para dar ops| coste 1
+CORRECTO!
+
+Comprobando si damerau_i(ops,imperterrito) == 11
+operaciones: [('', 'i'), ('o', 'm'), ('p', 'p'), ('', 'e'), ('', 'r'), ('', 't'), ('', 'e'), ('', 'r'), ('', 'r'), ('', 'i'), ('', 't'), ('s', 'o')]
+ -     i   se aplica en |ops para dar i|ops coste 1
+ - o   m   se aplica en i|ops para dar im|ps coste 1
+ - p   p   se aplica en im|ps para dar imp|s coste 0
+ -     e   se aplica en imp|s para dar impe|s coste 1
+ -     r   se aplica en impe|s para dar imper|s coste 1
+ -     t   se aplica en imper|s para dar impert|s coste 1
+ -     e   se aplica en impert|s para dar imperte|s coste 1
+ -     r   se aplica en imperte|s para dar imperter|s coste 1
+ -     r   se aplica en imperter|s para dar imperterr|s coste 1
+ -     i   se aplica en imperterr|s para dar imperterri|s coste 1
+ -     t   se aplica en imperterri|s para dar imperterrit|s coste 1
+ - s   o   se aplica en imperterrit|s para dar imperterrito| coste 1
+CORRECTO!
+
+Comprobando si damerau_i(algoritmo,algortimo) == 1
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('it', 'ti'), ('m', 'm'), ('o', 'o')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - l   l   se aplica en a|lgoritmo para dar al|goritmo coste 0
+ - g   g   se aplica en al|goritmo para dar alg|oritmo coste 0
+ - o   o   se aplica en alg|oritmo para dar algo|ritmo coste 0
+ - r   r   se aplica en algo|ritmo para dar algor|itmo coste 0
+ - it  ti  se aplica en algor|itmo para dar algorti|mo coste 1
+ - m   m   se aplica en algorti|mo para dar algortim|o coste 0
+ - o   o   se aplica en algortim|o para dar algortimo| coste 0
+CORRECTO!
+
+Comprobando si damerau_i(algoritmo,algortximo) == 2
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('it', 'txi'), ('m', 'm'), ('o', 'o')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - l   l   se aplica en a|lgoritmo para dar al|goritmo coste 0
+ - g   g   se aplica en al|goritmo para dar alg|oritmo coste 0
+ - o   o   se aplica en alg|oritmo para dar algo|ritmo coste 0
+ - r   r   se aplica en algo|ritmo para dar algor|itmo coste 0
+ - it  txi se aplica en algor|itmo para dar algortxi|mo coste 2
+ - m   m   se aplica en algortxi|mo para dar algortxim|o coste 0
+ - o   o   se aplica en algortxim|o para dar algortximo| coste 0
+CORRECTO!
+
+Comprobando si damerau_i(algoritmo,lagortimo) == 2
+operaciones: [('al', 'la'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('it', 'ti'), ('m', 'm'), ('o', 'o')]
+ - al  la  se aplica en |algoritmo para dar la|goritmo coste 1
+ - g   g   se aplica en la|goritmo para dar lag|oritmo coste 0
+ - o   o   se aplica en lag|oritmo para dar lago|ritmo coste 0
+ - r   r   se aplica en lago|ritmo para dar lagor|itmo coste 0
+ - it  ti  se aplica en lagor|itmo para dar lagorti|mo coste 1
+ - m   m   se aplica en lagorti|mo para dar lagortim|o coste 0
+ - o   o   se aplica en lagortim|o para dar lagortimo| coste 0
+CORRECTO!
+
+Comprobando si damerau_i(algoritmo,agaloritom) == 3
+operaciones: [('a', 'a'), ('lg', 'gal'), ('o', 'o'), ('r', 'r'), ('i', 'i'), ('t', 't'), ('mo', 'om')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - lg  gal se aplica en a|lgoritmo para dar agal|oritmo coste 2
+ - o   o   se aplica en agal|oritmo para dar agalo|ritmo coste 0
+ - r   r   se aplica en agalo|ritmo para dar agalor|itmo coste 0
+ - i   i   se aplica en agalor|itmo para dar agalori|tmo coste 0
+ - t   t   se aplica en agalori|tmo para dar agalorit|mo coste 0
+ - mo  om  se aplica en agalorit|mo para dar agaloritom| coste 1
+CORRECTO!
+
+Comprobando si damerau_i(algoritmo,algormio) == 2
+operaciones: [('a', 'a'), ('l', 'l'), ('g', 'g'), ('o', 'o'), ('r', 'r'), ('itm', 'mi'), ('o', 'o')]
+ - a   a   se aplica en |algoritmo para dar a|lgoritmo coste 0
+ - l   l   se aplica en a|lgoritmo para dar al|goritmo coste 0
+ - g   g   se aplica en al|goritmo para dar alg|oritmo coste 0
+ - o   o   se aplica en alg|oritmo para dar algo|ritmo coste 0
+ - r   r   se aplica en algo|ritmo para dar algor|itmo coste 0
+ - itm mi  se aplica en algor|itmo para dar algormi|o coste 2
+ - o   o   se aplica en algormi|o para dar algormio| coste 0
+CORRECTO!
+
+Comprobando si damerau_i(acb,ba) == 2
+operaciones: [('acb', 'ba')]
+ - acb ba  se aplica en |acb para dar ba| coste 2
+CORRECTO!
+
